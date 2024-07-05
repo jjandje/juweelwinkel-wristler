@@ -1,0 +1,15 @@
+{
+    "name": "jjandje/juweelwinkel-wristler",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "JuweelwinkelWristler\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jeroen"
+        }
+    ],
+    "require": {}
+}

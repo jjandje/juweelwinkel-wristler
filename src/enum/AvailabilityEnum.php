@@ -1,0 +1,9 @@
+<?php
+
+enum AvailabilityEnum: string
+{
+	case READY_TO_SHIP_IN_1_3_DAYS = 'READY_TO_SHIP_IN_1_3_DAYS';
+	case READY_TO_SHIP_IN_3_5_DAYS = 'READY_TO_SHIP_IN_3_5_DAYS';
+	case READY_TO_SHIP_IN_6_10_DAYS = 'READY_TO_SHIP_IN_6_10_DAYS';
+	case ON_REQUEST = 'ON_REQUEST';
+}
