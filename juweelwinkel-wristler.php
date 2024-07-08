@@ -1,28 +1,20 @@
 <?php
 
 use JuweelwinkelWristler\controllers\FeedController;
+use JuweelwinkelWristler\controllers\WebhookController;
+use JuweelwinkelWristler\controllers\WristlerController;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-use JuweelwinkelWristler\controllers\WebhookController;
-use JuweelwinkelWristler\controllers\WristlerController;
-use Wibu\classes\CodemeterAuthentication;
-use Wibu\classes\CodemeterElementorBlocks;
-use Wibu\classes\CodemeterMailMessage;
-use Wibu\classes\CodemeterManagement;
-use Wibu\classes\CodemeterMultiRole;
-use Wibu\classes\CodemeterSDK;
-use Wibu\classes\CodemeterShortcodes;
-
 /**
- * Plugin Name: Wibu Codemeter SDK plugin
- * Description: Wibu Systems Codemeter SDK
+ * Plugin Name: Juweelwinkel Wristler
+ * Description: Wristler connection for Juweelwinkel
  * Version: 1.0.0
  * Author: Jeroen Venderbosch
  * License: GPL-2.0+
- * Text Domain: codemeter-sdk
+ * Text Domain: jw-wristler
  */
 
 
@@ -61,7 +53,7 @@ class Juweelwinkel_Wristler
 	
 	public function jw_wrist_register_feed_route()
 	{
-		register_rest_route(self::API_BASE_ROUTE, '/feed/', [
+		register_rest_route(self::API_BASE_ROUTE, '/feed', [
 			'methods' => 'GET',
 			'callback' => [new FeedController(), 'index'],
 		]);
@@ -69,23 +61,18 @@ class Juweelwinkel_Wristler
 	
 	public function jw_wrist_register_webhook_route()
 	{
-		register_rest_route(self::API_BASE_ROUTE, '/webhook/', [
+		register_rest_route(self::API_BASE_ROUTE, '/webhook', [
 			'methods' => 'GET',
-			'callback' => [new WebhookController(), 'index'],
+			'callback' => [WebhookController::class, 'index'],
 		]);
 	}
 	
 	public function jw_wrist_register_wristler_route()
 	{
-		register_rest_route(self::API_BASE_ROUTE, '/wristler/', [
+		register_rest_route(self::API_BASE_ROUTE, '/wristler', [
 			'methods' => 'GET',
-			'callback' => [new WristlerController(), 'index'],
+			'callback' => [WristlerController::class, 'index'],
 		]);
-	}
-	
-	public function jw_wrist_handle_get_root( WP_REST_Request $request )
-	{
-		
 	}
 	
 	public static function cm_encrypt($value){

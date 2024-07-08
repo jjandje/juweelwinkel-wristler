@@ -9,11 +9,18 @@ class FeedController
 	public function index( $request )
 	{
 		$watches = get_posts([
-			'post_type' => 'product',
-			
+			'post_type' => 'company',
+			'numberposts' => -1,
+			'fields' => [
+				'ID',
+				'post_title',
+				'post_name',
+				'post_status',
+				'post_type',
+				'post_modified',
+			]
 		]);
 		
-		$response = new WP_REST_Response($watches);
+		return rest_ensure_response($watches);
 	}
-	
 }

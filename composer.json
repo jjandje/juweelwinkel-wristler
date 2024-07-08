@@ -1,15 +1,17 @@
 {
     "name": "jjandje/juweelwinkel-wristler",
+    "description": "Juweelwinkel Wristler Connector",
+    "minimum-stability": "stable",
     "license": "proprietary",
+    "authors": [
+        {
+            "name": "jeroen",
+            "email": "jandje@jandje.nl"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "JuweelwinkelWristler\\": "src/"
         }
-    },
-    "authors": [
-        {
-            "name": "jeroen"
-        }
-    ],
-    "require": {}
+    }
 }
